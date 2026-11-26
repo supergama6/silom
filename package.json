@@ -1,0 +1,19 @@
+{
+  "name": "silomcfd-clone",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "node scripts/collect.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "capture:source": "node scripts/capture.mjs source",
+    "capture:local": "node scripts/capture.mjs local",
+    "audit:home": "node scripts/audit-home.mjs",
+    "audit:pages": "node scripts/audit-pages.mjs",
+    "audit:calendar": "node scripts/audit-calendar-widget.mjs",
+    "audit:calendar:live": "node scripts/inspect-calendar-live.mjs",
+    "audit:geometry": "node scripts/inspect-home.mjs",
+    "audit:pixels": "node scripts/compare-home-full.mjs",
+    "serve": "node scripts/serve.mjs"
+  }
+}

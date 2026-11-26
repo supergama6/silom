@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Silom CFD local interface reconstruction">
+    <title>Silom</title>
+    <link rel="icon" href="public/images/favicon.ico">
+    <link rel="stylesheet" href="public/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-site-header>
+      <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html" aria-label="Silom home">
+          <img src="public/assets/img/logo/black-logo.png" alt="Silom">
+        </a>
+
+        <nav class="site-header__nav" aria-label="Primary navigation">
+          <ul class="site-header__menu">
+            <li class="site-header__item">
+              <a class="site-header__link" href="index.html" data-i18n-cn="首页" data-i18n-en="Home">首页</a>
+            </li>
+            <li class="site-header__item site-header__item--dropdown">
+              <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+                <span data-i18n-cn="差价合约交易" data-i18n-en="CFD Trading">差价合约交易</span>
+                <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <ul class="site-header__submenu">
+                <li class="site-header__submenu-item site-header__submenu-item--nested">
+                  <button class="site-header__submenu-link site-header__submenu-trigger" type="button" aria-expanded="false">
+                    <span data-i18n-cn="您需要知道的内容" data-i18n-en="What You Need to Know">您需要知道的内容</span>
+                    <i class="site-header__chevron site-header__chevron--side fas fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                  <ul class="site-header__submenu site-header__submenu--nested">
+                    <li><a class="site-header__submenu-link" href="cfds-vs-stock-trading.html" data-i18n-cn="差价合约与股票" data-i18n-en="CFDs vs Stock Trading">差价合约与股票</a></li>
+                    <li><a class="site-header__submenu-link" href="is-cfd-trading-for-me.html" data-i18n-cn="差价合约交易是否适合我？" data-i18n-en="Is CFD Trading for Me?">差价合约交易是否适合我？</a></li>
+                    <li><a class="site-header__submenu-link" href="benefits-of-trading-cfds.html" data-i18n-cn="CFD交易的好处：为什么要交易CFD" data-i18n-en="Benefits of CFD Trading">CFD交易的好处：为什么要交易CFD</a></li>
+                    <li><a class="site-header__submenu-link" href="how-to-use-macd-for-beginners.html" data-i18n-cn="如何在交易中使用MACD指标（初学者指南）" data-i18n-en="How to Use MACD for Beginners">如何在交易中使用MACD指标（初学者指南）</a></li>
+                    <li><a class="site-header__submenu-link" href="best-trading-strategies-for-beginners.html" data-i18n-cn="初学者的剃头交易策略" data-i18n-en="Trading Strategies for Beginners">初学者的剃头交易策略</a></li>
+                    <li><a class="site-header__submenu-link" href="trading-with-trend-lines-for-beginners.html" data-i18n-cn="如何为初学者使用趋势线进行交易" data-i18n-en="Trading with Trend Lines">如何为初学者使用趋势线进行交易</a></li>
+                    <li><a class="site-header__submenu-link" href="everything-you-need-to-know-about-spot-trading.html" data-i18n-cn="你需要知道的关于现货交易的一切" data-i18n-en="Everything About Spot Trading">你需要知道的关于现货交易的一切</a></li>
+                  </ul>
+                </li>
+                <li><a class="site-header__submenu-link" href="trading-accounts.html" data-i18n-cn="交易账户" data-i18n-en="Trading Accounts">交易账户</a></li>
+              </ul>
+            </li>
+            <li class="site-header__item site-header__item--dropdown">
+              <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+                <span data-i18n-cn="CFD 产品" data-i18n-en="CFD Products">CFD 产品</span>
+                <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <ul class="site-header__submenu">
+                <li><a class="site-header__submenu-link" href="markets.html" data-i18n-cn="产品" data-i18n-en="Products">产品</a></li>
+                <li><a class="site-header__submenu-link" href="forex.html" data-i18n-cn="外汇" data-i18n-en="Forex">外汇</a></li>
+                <li><a class="site-header__submenu-link" href="precious-metal.html" data-i18n-cn="贵金属" data-i18n-en="Precious Metals">贵金属</a></li>
+                <li><a class="site-header__submenu-link" href="energies.html" data-i18n-cn="能源" data-i18n-en="Energies">能源</a></li>
+                <li><a class="site-header__submenu-link" href="indices.html" data-i18n-cn="指数" data-i18n-en="Indices">指数</a></li>
+              </ul>
+            </li>
+            <li class="site-header__item site-header__item--dropdown">
+              <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+                <span data-i18n-cn="交易平台" data-i18n-en="Trading Platform">交易平台</span>
+                <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <ul class="site-header__submenu">
+                <li><a class="site-header__submenu-link" href="MetaTrader4.html">MetaTrader 4</a></li>
+              </ul>
+            </li>
+            <li class="site-header__item site-header__item--dropdown">
+              <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+                <span data-i18n-cn="分析与学习" data-i18n-en="Analysis &amp; Education">分析与学习</span>
+                <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <ul class="site-header__submenu">
+                <li><a class="site-header__submenu-link" href="market-analysis.html" data-i18n-cn="每日市场分析" data-i18n-en="Daily Market Analysis">每日市场分析</a></li>
+                <li><a class="site-header__submenu-link" href="calendar.html" data-i18n-cn="财经日历" data-i18n-en="Economic Calendar">财经日历</a></li>
+              </ul>
+            </li>
+            <li class="site-header__item site-header__item--dropdown">
+              <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+                <span data-i18n-cn="关于我们" data-i18n-en="About Us">关于我们</span>
+                <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <ul class="site-header__submenu">
+                <li><a class="site-header__submenu-link" href="about-us.html" data-i18n-cn="关于Silom" data-i18n-en="About Silom">关于Silom</a></li>
+                <li><a class="site-header__submenu-link" href="contact.html" data-i18n-cn="联系我们" data-i18n-en="Contact Us">联系我们</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="site-header__language site-header__item site-header__item--dropdown">
+          <button class="site-header__link site-header__trigger" type="button" aria-expanded="false">
+            <span data-language-label>中文简体</span>
+            <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+          </button>
+          <ul class="site-header__submenu site-header__submenu--language">
+            <li><button class="site-header__submenu-link" type="button" data-language="cn">中文简体</button></li>
+            <li><button class="site-header__submenu-link" type="button" data-language="en">English</button></li>
+          </ul>
+        </div>
+
+        <button class="site-header__menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">
+          <i class="far fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-navigation" aria-hidden="true">
+      <div class="mobile-drawer__top">
+        <a class="mobile-drawer__logo" href="index.html" aria-label="Silom home">
+          <img src="public/assets/img/logo/black-logo.png" alt="Silom">
+        </a>
+        <button class="mobile-drawer__close" type="button" aria-label="Close navigation">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="mobile-drawer__language">
+        <button type="button" data-mobile-language-trigger aria-expanded="false">
+          <span data-language-label>中文简体</span>
+          <i class="site-header__chevron fas fa-angle-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-drawer__language-menu" hidden>
+          <li><button type="button" data-language="cn">中文简体</button></li>
+          <li><button type="button" data-language="en">English</button></li>
+        </ul>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav__list">
+          <li><a class="mobile-nav__link" href="index.html" data-i18n-cn="首页" data-i18n-en="Home">首页</a></li>
+          <li class="mobile-nav__item">
+            <button class="mobile-nav__link mobile-nav__trigger" type="button" aria-expanded="false">
+              <span data-i18n-cn="差价合约交易" data-i18n-en="CFD Trading">差价合约交易</span><span aria-hidden="true">+</span>
+            </button>
+            <ul class="mobile-nav__submenu" hidden>
+              <li class="mobile-nav__item">
+                <button class="mobile-nav__link mobile-nav__link--nested mobile-nav__trigger" type="button" aria-expanded="false">
+                  <span data-i18n-cn="您需要知道的内容" data-i18n-en="What You Need to Know">您需要知道的内容</span><span aria-hidden="true">+</span>
+                </button>
+                <ul class="mobile-nav__submenu" hidden>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="cfds-vs-stock-trading.html" data-i18n-cn="差价合约与股票" data-i18n-en="CFDs vs Stock Trading">差价合约与股票</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="is-cfd-trading-for-me.html" data-i18n-cn="差价合约交易是否适合我？" data-i18n-en="Is CFD Trading for Me?">差价合约交易是否适合我？</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="benefits-of-trading-cfds.html" data-i18n-cn="CFD交易的好处：为什么要交易CFD" data-i18n-en="Benefits of CFD Trading">CFD交易的好处：为什么要交易CFD</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="how-to-use-macd-for-beginners.html" data-i18n-cn="如何在交易中使用MACD指标（初学者指南）" data-i18n-en="How to Use MACD for Beginners">如何在交易中使用MACD指标（初学者指南）</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="best-trading-strategies-for-beginners.html" data-i18n-cn="初学者的剃头交易策略" data-i18n-en="Trading Strategies for Beginners">初学者的剃头交易策略</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="trading-with-trend-lines-for-beginners.html" data-i18n-cn="如何为初学者使用趋势线进行交易" data-i18n-en="Trading with Trend Lines">如何为初学者使用趋势线进行交易</a></li>
+                  <li><a class="mobile-nav__link mobile-nav__link--deep" href="everything-you-need-to-know-about-spot-trading.html" data-i18n-cn="你需要知道的关于现货交易的一切" data-i18n-en="Everything About Spot Trading">你需要知道的关于现货交易的一切</a></li>
+                </ul>
+              </li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="trading-accounts.html" data-i18n-cn="交易账户" data-i18n-en="Trading Accounts">交易账户</a></li>
+            </ul>
+          </li>
+          <li class="mobile-nav__item">
+            <button class="mobile-nav__link mobile-nav__trigger" type="button" aria-expanded="false">
+              <span data-i18n-cn="CFD 产品" data-i18n-en="CFD Products">CFD 产品</span><span aria-hidden="true">+</span>
+            </button>
+            <ul class="mobile-nav__submenu" hidden>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="markets.html" data-i18n-cn="产品" data-i18n-en="Products">产品</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="forex.html" data-i18n-cn="外汇" data-i18n-en="Forex">外汇</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="precious-metal.html" data-i18n-cn="贵金属" data-i18n-en="Precious Metals">贵金属</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="energies.html" data-i18n-cn="能源" data-i18n-en="Energies">能源</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="indices.html" data-i18n-cn="指数" data-i18n-en="Indices">指数</a></li>
+            </ul>
+          </li>
+          <li class="mobile-nav__item">
+            <button class="mobile-nav__link mobile-nav__trigger" type="button" aria-expanded="false">
+              <span data-i18n-cn="交易平台" data-i18n-en="Trading Platform">交易平台</span><span aria-hidden="true">+</span>
+            </button>
+            <ul class="mobile-nav__submenu" hidden>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="MetaTrader4.html">MetaTrader 4</a></li>
+            </ul>
+          </li>
+          <li class="mobile-nav__item">
+            <button class="mobile-nav__link mobile-nav__trigger" type="button" aria-expanded="false">
+              <span data-i18n-cn="分析与学习" data-i18n-en="Analysis &amp; Education">分析与学习</span><span aria-hidden="true">+</span>
+            </button>
+            <ul class="mobile-nav__submenu" hidden>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="market-analysis.html" data-i18n-cn="每日市场分析" data-i18n-en="Daily Market Analysis">每日市场分析</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="calendar.html" data-i18n-cn="财经日历" data-i18n-en="Economic Calendar">财经日历</a></li>
+            </ul>
+          </li>
+          <li class="mobile-nav__item">
+            <button class="mobile-nav__link mobile-nav__trigger" type="button" aria-expanded="false">
+              <span data-i18n-cn="关于我们" data-i18n-en="About Us">关于我们</span><span aria-hidden="true">+</span>
+            </button>
+            <ul class="mobile-nav__submenu" hidden>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="about-us.html" data-i18n-cn="关于Silom" data-i18n-en="About Silom">关于Silom</a></li>
+              <li><a class="mobile-nav__link mobile-nav__link--nested" href="contact.html" data-i18n-cn="联系我们" data-i18n-en="Contact Us">联系我们</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <button class="mobile-drawer__overlay" type="button" aria-label="Close navigation" tabindex="-1"></button>
+
+    <main class="site-main">
+      <section class="home-hero">
+        <div class="home-hero__inner">
+          <h1 class="home-hero__title" data-i18n-cn="最优报价与透明的交易环境相结合" data-i18n-en="Combining the best pricing with a transparent trading environment">最优报价与透明的交易环境相结合</h1>
+          <div class="home-hero__summary">
+            <p data-i18n-cn="交易外汇、股票、指数、大宗商品及加密货币" data-i18n-en="Trade forex, stocks, indices, commodities and cryptocurrencies">交易外汇、股票、指数、大宗商品及加密货币</p>
+          </div>
+          <div class="home-hero__actions">
+            <a class="home-hero__cta" href="#" data-i18n-cn="即刻交易" data-i18n-en="Trade now">即刻交易</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="spread-panel" aria-labelledby="spread-panel-title">
+        <div class="spread-panel__outer">
+          <div class="spread-panel__inner">
+            <img class="spread-panel__shape spread-panel__shape--left" src="public/assets/img/brand/radius-left.png" alt="">
+            <img class="spread-panel__shape spread-panel__shape--right" src="public/assets/img/brand/radius-right.png" alt="">
+            <h2 class="spread-panel__title" id="spread-panel-title" data-i18n-cn="用极低的点差极速成交" data-i18n-en="Ultra-fast execution with extremely low spreads">用极低的点差极速成交</h2>
+            <div class="spread-panel__items">
+              <div class="spread-panel__item">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span data-i18n-cn="与顶级流动性提供商合作" data-i18n-en="Partnered with top-tier liquidity providers">与顶级流动性提供商合作</span>
+              </div>
+              <div class="spread-panel__item">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span data-i18n-cn="由 OneZero 金融技术公司提供支持" data-i18n-en="Supported by OneZero financial technology">由 OneZero 金融技术公司提供支持</span>
+              </div>
+              <div class="spread-panel__item">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span data-i18n-cn="纽约NY4 的Equinix 提供最先进的服务器" data-i18n-en="Advanced servers from Equinix NY4 in New York">纽约NY4 的Equinix 提供最先进的服务器</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="deposit-section" aria-labelledby="deposit-title">
+        <div class="deposit-section__container">
+          <div class="deposit-section__content">
+            <div class="section-badge">
+              <img src="public/assets/img/bale.png" alt="">
+              <span>Silom</span>
+            </div>
+            <h2 class="deposit-section__title" id="deposit-title">
+              <span data-i18n-cn="立即到账" data-i18n-en="Instant deposits">立即到账</span><br>
+              <span data-i18n-cn="快速取款" data-i18n-en="Fast withdrawals">快速取款</span><br>
+              <span data-i18n-cn="无手续费收取" data-i18n-en="No fees charged">无手续费收取</span>
+            </h2>
+            <p class="deposit-section__text" data-i18n-cn="提供多种入金渠道让您体验最简单的入金方式。您的资金将被安全地存入一级银行。" data-i18n-en="Choose from multiple deposit methods for a simple funding experience. Your funds are held securely with a tier-one bank.">提供多种入金渠道让您体验最简单的入金方式。您的资金将被安全地存入一级银行。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section" aria-labelledby="services-title">
+        <div class="services-section__container">
+          <div class="services-section__heading">
+            <div class="section-badge section-badge--dark">
+              <img src="public/assets/img/bale.png" alt="">
+              <span>Silom</span>
+            </div>
+            <h2 class="services-section__title" id="services-title" data-i18n-cn="一个账户 12,000+ 交易产品" data-i18n-en="12,000+ trading products in one account">一个账户 12,000+ 交易产品</h2>
+            <h3 class="services-section__subtitle" data-i18n-cn="我们提供 7 种类型投资产品，数量高达 12,000 种，让您的投资组合多样化：差价合约，外汇，指数，贵金属，能源，股票。" data-i18n-en="We offer seven asset classes and more than 12,000 products to diversify your portfolio: CFDs, forex, indices, precious metals, energy and stocks.">我们提供 7 种类型投资产品，数量高达 12,000 种，让您的投资组合多样化：差价合约，外汇，指数，贵金属，能源，股票。</h3>
+          </div>
+
+          <div class="services-section__grid">
+            <article class="service-card">
+              <i class="service-card__icon flaticon-keywords" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="forex.html" data-i18n-cn="外汇" data-i18n-en="Forex">外汇</a></h3>
+                <p data-i18n-cn="用最快的执行速度和超低的点差，5 天 24 小时交易 60 种外汇，杠杆最高可达到 1:200" data-i18n-en="Trade 60 forex pairs 24 hours a day, five days a week with fast execution, ultra-low spreads and leverage up to 1:200.">用最快的执行速度和超低的点差，5 天 24 小时交易 60 种外汇，杠杆最高可达到 1:200</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <i class="service-card__icon flaticon-social-media" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="markets.html" data-i18n-cn="股票" data-i18n-en="Stocks">股票</a></h3>
+                <p data-i18n-cn="其中 150 支最优美股可做多或做空，做多享有股票分红" data-i18n-en="Go long or short on 150 leading US stocks, with dividends available on long positions.">其中 150 支最优美股可做多或做空，做多享有股票分红</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <i class="service-card__icon flaticon-email-marketing" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="indices.html" data-i18n-cn="股指" data-i18n-en="Indices">股指</a></h3>
+                <p data-i18n-cn="交易主要国际股票市场的趋势，无重新报价，无隐藏费用" data-i18n-en="Trade trends in major international stock markets with no requotes or hidden fees.">交易主要国际股票市场的趋势，无重新报价，无隐藏费用</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <i class="service-card__icon flaticon-copy-writing" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="precious-metal.html" data-i18n-cn="贵金属" data-i18n-en="Precious metals">贵金属</a></h3>
+                <p data-i18n-cn="交易多种贵金属差价合约：黄金，白银，铂金，铜" data-i18n-en="Trade precious-metal CFDs including gold, silver, platinum and copper.">交易多种贵金属差价合约：黄金，白银，铂金，铜</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <i class="service-card__icon flaticon-software-development" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="energies.html" data-i18n-cn="能源" data-i18n-en="Energy">能源</a></h3>
+                <p data-i18n-cn="交易布伦特原油,美原油等现货能源差价合约" data-i18n-en="Trade spot energy CFDs including Brent and US crude oil.">交易布伦特原油,美原油等现货能源差价合约</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <i class="service-card__icon flaticon-www" aria-hidden="true"></i>
+              <div class="service-card__content">
+                <h3><a href="markets.html" data-i18n-cn="加密货币" data-i18n-en="Cryptocurrencies">加密货币</a></h3>
+                <p data-i18n-cn="交易十种加密货币，近两年最热门投资市场之一" data-i18n-en="Trade ten cryptocurrencies in one of the most popular investment markets of recent years.">交易十种加密货币，近两年最热门投资市场之一</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section" aria-labelledby="platform-title">
+        <div class="platform-section__container">
+          <div class="platform-section__content">
+            <div class="section-badge">
+              <img src="public/assets/img/bale.png" alt="">
+              <span>Silom</span>
+            </div>
+            <h2 class="platform-section__title" id="platform-title" data-i18n-cn="交易平台" data-i18n-en="Trading platform">交易平台</h2>
+            <p class="platform-section__text" data-i18n-cn="您可以在 MT4 平台上交易。苹果，安卓，网页版，电脑端均可使用。" data-i18n-en="Trade on MT4 across Apple, Android, web and desktop devices.">您可以在 MT4 平台上交易。苹果，安卓，网页版，电脑端均可使用。</p>
+            <a class="platform-section__link" href="MetaTrader4.html">
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>MT4</span>
+            </a>
+          </div>
+          <div class="platform-section__image">
+            <img src="public/assets/img/trading-platform-screens.png" alt="MT4 platform on desktop, tablet and mobile">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img class="site-footer__shape site-footer__shape--left" src="public/assets/img/footer-color-shape.png" alt="">
+      <img class="site-footer__shape site-footer__shape--right" src="public/assets/img/footer-color-shape-2.png" alt="">
+      <div class="site-footer__container">
+        <div class="site-footer__widgets">
+          <section class="site-footer__column site-footer__column--risk" aria-label="Risk disclosure">
+            <a class="site-footer__logo" href="index.html" aria-label="Silom home">
+              <img src="public/assets/img/logo/white-logo.png" alt="Silom">
+            </a>
+            <div class="site-footer__risk-text">
+              <p data-i18n-cn="*风险警告：差价合约（CFDs）是复杂的金融工具，涉及重大风险，可能不适合所有投资者。使用杠杆可能会导致您的全部投资迅速损失。在参与差价合约之前，考虑您对产品的理解、投资目标、经验水平和风险承受能力至关重要。如有需要，请咨询独立财务顾问以获取指导。" data-i18n-en="*Risk warning: CFDs are complex financial instruments and involve significant risk. They may not be suitable for all investors. Leverage can result in the rapid loss of your entire investment. Consider your understanding, objectives, experience and risk tolerance before trading, and seek independent financial advice where necessary.">*风险警告：差价合约（CFDs）是复杂的金融工具，涉及重大风险，可能不适合所有投资者。使用杠杆可能会导致您的全部投资迅速损失。在参与差价合约之前，考虑您对产品的理解、投资目标、经验水平和风险承受能力至关重要。如有需要，请咨询独立财务顾问以获取指导。</p>
+              <p data-i18n-cn="受限地区： Silom无法为特定国家/地区的居民提供服务，例如： 美国, 加拿大, 以色列 和 伊朗伊斯兰共和国。" data-i18n-en="Restricted regions: Silom does not provide services to residents of certain countries or regions, including the United States, Canada, Israel and the Islamic Republic of Iran.">受限地区： Silom无法为特定国家/地区的居民提供服务，例如： 美国, 加拿大, 以色列 和 伊朗伊斯兰共和国。</p>
+              <p>Silom International Limited， register number：1832475</p>
+            </div>
+          </section>
+
+          <nav class="site-footer__column site-footer__column--links" aria-label="Footer navigation">
+            <h2>Silom</h2>
+            <ul>
+              <li><a href="markets.html" data-i18n-cn="产品" data-i18n-en="Products">产品</a></li>
+              <li><a href="MetaTrader4.html" data-i18n-cn="交易平台" data-i18n-en="Trading platform">交易平台</a></li>
+              <li><a href="trading-accounts.html" data-i18n-cn="交易账户" data-i18n-en="Trading accounts">交易账户</a></li>
+              <li><a href="about-us.html" data-i18n-cn="关于Silom" data-i18n-en="About Silom">关于Silom</a></li>
+            </ul>
+          </nav>
+
+          <section class="site-footer__column site-footer__column--contact" aria-labelledby="contact-title">
+            <h2 id="contact-title" data-i18n-cn="联系我们" data-i18n-en="Contact us">联系我们</h2>
+            <address class="site-footer__contact-list">
+              <div class="site-footer__contact-item">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <p>Register Office： Vistra Corporate Service Center, Wickhams Cay II, Road Town, Tortola, VG1110, British Virgin Islands.</p>
+              </div>
+              <div class="site-footer__contact-item">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <p>Physical Office： Room 88, Floor 7, New East Sun Industrial Building, No.18 Shing Yip Street, Kwun Tong, Kowloon, Hong Kong.</p>
+              </div>
+              <div class="site-footer__contact-item">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:cs@silomcfd.com">cs@silomcfd.com</a>
+              </div>
+              <div class="site-footer__contact-item">
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                <a href="tel:+85230697747">+852 30697747</a>
+              </div>
+            </address>
+          </section>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__bottom-inner">
+          <button class="site-footer__scroll-top" type="button" aria-label="Back to top" data-scroll-top>
+            <i class="far fa-angle-double-up" aria-hidden="true"></i>
+          </button>
+          <p>© <a href="index.html">2024</a> All Rights Reserved</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
